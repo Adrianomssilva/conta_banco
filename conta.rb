@@ -20,8 +20,12 @@ class Conta
    end
 
    def trans (conta_destino, valor)
-      debitar(valor)
-      conta_destino.deposito(valor)
+      if @saldo >= valor
+         debitar(valor)
+         conta_destino.deposito(valor)
+      else 
+         puts "Saldo insuficiente"
+      end
    end
 end
 
